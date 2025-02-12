@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-    @Query("SELECT c FROM Customer c ORDER BY c.id")
-    Page<Customer> findCustomersInBatches(Pageable pageable);
+
+  @Query("SELECT c FROM Customer c ORDER BY c.id")
+  Page<Customer> findCustomersInBatches(Pageable pageable);
 }

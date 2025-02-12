@@ -9,10 +9,10 @@ import java.util.function.UnaryOperator;
 @Component("customerCsvFunction")
 public class CustomerCsvFunction implements UnaryOperator<String> {
 
-    private final CustomerService customerService;
+  private final CustomerService customerService;
 
-    @Override
-    public String apply(String input) {
-        return customerService.generateAndUploadCsvReport();
-    }
+  @Override
+  public String apply(String input) {
+    return customerService.generateAndUploadCsvReport();
+  }
 }
