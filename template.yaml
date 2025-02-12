@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: SAM template for Customers Report Lambda function
+
+Globals:
+  Function:
+    Timeout: 900
+    MemorySize: 1024
+    Runtime: java17
+    Environment:
+      Variables:
+        SPRING_CLOUD_FUNCTION_DEFINITION: customerCsvFunction
+
+Resources:
+  CustomersReportFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub customers-report-function
+      CodeUri: target/customers-report-function-1.0-SNAPSHOT.jar
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest

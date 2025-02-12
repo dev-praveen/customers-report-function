@@ -1,0 +1,28 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "customers-report-function"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-XXXXXXXXXXXX"
+s3_prefix = "customers-report-function"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = [
+    "Environment=dev",
+    "S3BucketName=your-bucket-name",
+    "ScheduleExpression=rate(1 day)"
+]
+
+[prod.deploy.parameters]
+stack_name = "customers-report-function-prod"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-XXXXXXXXXXXX"
+s3_prefix = "customers-report-function-prod"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = [
+    "Environment=prod",
+    "S3BucketName=your-prod-bucket-name",
+    "ScheduleExpression=rate(1 day)"
+]
