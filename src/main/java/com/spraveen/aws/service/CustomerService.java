@@ -35,6 +35,12 @@ public class CustomerService {
     this.s3Service = s3Service;
   }
 
+  /**
+   * Generates a CSV report from the customer data in the database, and uploads it to S3 with a
+   * timestamp-based filename.
+   *
+   * @return The name of the uploaded file
+   */
   @Transactional(readOnly = true)
   public String generateAndUploadCsvReport() {
 
@@ -42,6 +48,13 @@ public class CustomerService {
     return s3Service.uploadCsvToS3(csvContent, CSV_FILE_PREFIX);
   }
 
+  /**
+   * Generates a CSV report from the customer data in the database. The report is generated in
+   * batches to avoid memory issues.
+   *
+   * @return The CSV content as a string
+   * @throws CsvGenerationException If there is an error generating the CSV content
+   */
   private String generateCsvContent() throws CsvGenerationException {
 
     StringWriter stringWriter = new StringWriter();
