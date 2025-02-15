@@ -1,7 +1,3 @@
-
-
-**README.md**
-
 **Customer CSV Report Generator**
 =====================================
 
@@ -20,9 +16,7 @@ This is a Spring Cloud Function that generates a CSV report of customer records 
 **Prerequisites**
 -----------------
 
-*   Java 17 or higher
-*   Maven 3.6.3 or higher
-*   Spring Cloud Function 3.2.2 or higher
+*   Java 17
 *   AWS S3 bucket with credentials set up
 
 **Setup and Run**
@@ -46,7 +40,7 @@ mvn clean package
 mvn spring-boot:run
 ```
 
-This will start the Spring Cloud Function locally. You can then trigger the function by sending a request to the `/customers/csv` endpoint.
+This will start the Spring Cloud Function locally.
 
 ### Configure AWS S3 Credentials
 

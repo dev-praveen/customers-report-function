@@ -27,8 +27,8 @@ aws:
   s3:
     bucket-name: customers-report-bucket
   credentials:
-    access-key: ${AWS_ACCESS_KEY}
-    secret-key: ${AWS_SECRET_KEY}
+    access-key: ${CLOUD_ACCESS_KEY}
+    secret-key: ${CLOUD_SECRET_KEY}
 
 server:
   port: 8080
